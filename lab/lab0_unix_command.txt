@@ -1,0 +1,62 @@
+Terminology
+
+Terminal: a program that allows users to enter commands to control the computer
+Prompt: displays certain information every time the terminal is ready to receive new commands. For example, your prompt might look something like this:
+Usually, prompts will tell you your current directory (in the example above, the current directory is ~)
+Directory: the same thing as a folder. Directories can contain files as well as other directories
+Parent directory: the directory that is immediately above the current directory (i.e. one directory up). This is represented in UNIX as two dots, ..
+Current directory: the directory that we are currently looking at. This is represented in UNIX as a single dot, .
+Home directory: the top-level directory that contains all of your files and sub-directories. This is represented in UNIX as a tilde, ~.
+
+UNIX commands
+=============
+
+Directories
+-----------
+* `ls`: list the files and folders inside of the current
+  directory
+* `mkdir`: make a new directory. For example, `mkdir lab0` creates a
+   directory called `lab0`
+* `cd`: change directories. For example, `cd lab0` changes directories
+  to `lab0`
+* `rm -r`: remove a specified directory. For
+  example, `rm -r lab0` removes the `lab0` directory and all files
+  and subdirectories inside it.
+
+Files
+-----
+* `cat`: displays the contents of a file on the screen. For
+  example, `cat unix.txt` shows the contents of the file `unix.txt`
+* `mv`: moves a file/directory to another file/directory. For example,
+  `mv file1 file2` moves the contents of `file1` into
+  a (possibly new) file called `file2`. When moving one file to
+  another, we are effectively renaming the file!
+* `cp`: copies a file to another file/directory. For
+  example, `cp file1 file2` copies the contents of `file1` into a
+  file named `file2`.
+* `rm`: removes a file. For example, `rm file1` deletes the
+  file called `file1`.
+
+Miscellaneous
+-------------
+* `echo`: displays words on the screen
+* `man`: displays manual pages for a specified command
+
+In addition, we learned about two special directories: .. (the parent directory) and . (the current directory).
+
+python3 -m doctest lab01.py
+python3 -m doctest -v lab01.py(verbose mode)
+
+scp lab01.py cs61a-??@cory.eecs.berkeley.edu:~
+scp stands for secure copy. It is used for transferring data over a network.
+lab01.py is the path to the file(s) that you want to copy.
+cs61a-??@cory.eecs.berkeley.edu:~ is the destination. Unlike the normal cp command, the destination of the scp command can be a location on a remote computer.
+ssh cs61a-??@cory.eecs.berkeley.edu
+ssh is a secure shell (i.e. terminal) that connects to remote servers
+
+When running a Python file, you can append certain "flags" on the command line to inspect your code further. Here are a few useful ones that'll come in handy this semester. If you want to learn more about other Python flags, you can look at the documentation.
+
+no flags: Using no flags will directly run your Python script, meaning that Python will run the code in the file you provide and return you to the command line.
+-i: The -i option runs your Python script, and throws you into an interactive session. If you omit the -i option, Python will only run your script.
+-m doctest: Using the -m doctest option will be useful on your homeworks and projects to help you test your code by showing you whether your code is working as you intend it to. Doctests are marked by triple quotations (""") and are usually located within the function.
+-v: The -v flag signifies a verbose option. You can use this in conjunction with the -m doctest flag to be notified of all results (both failing and passing tests), i.e. python3 -m doctest -v FILE_NAME
